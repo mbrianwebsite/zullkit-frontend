@@ -77,7 +77,6 @@ import HelloWorld from "./components/HelloWorld.vue";
     </nav>
   </header> -->
 
-  <HomeView />
   <RouterView />
 </template>
 
