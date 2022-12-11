@@ -1,7 +1,7 @@
 <script setup>
-import Logo from "./navbar/logo.vue";
-import NavLinks from "./navbar/NavLinks.vue";
-import UserInfo from "./navbar/UserInfo.vue";
+import Logo from "@/components/layouts/navbar/logo.vue";
+import NavLinks from "@/components/layouts/navbar/NavLinks.vue";
+import UserInfo from "@/components/layouts/navbar/UserInfo.vue";
 </script>
 
 <template>

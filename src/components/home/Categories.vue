@@ -1,5 +1,5 @@
 <script setup>
-import Card from "./../../components/home/categories/Card.vue";
+import Card from "@/components/home/categories/Card.vue";
 
 import { ref } from 'vue';
 
