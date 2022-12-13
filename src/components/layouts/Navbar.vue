@@ -1,5 +1,5 @@
 <script setup>
-import Logo from "@/components/layouts/navbar/logo.vue";
+import Logo from "@/components/layouts/navbar/Logo.vue";
 import NavLinks from "@/components/layouts/navbar/NavLinks.vue";
 import UserInfo from "@/components/layouts/navbar/UserInfo.vue";
 </script>
