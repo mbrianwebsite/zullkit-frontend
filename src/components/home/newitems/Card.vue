@@ -5,7 +5,7 @@ defineProps({ title: String, image: String, category: String });
 <template>
     <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
         <div class="overflow-hidden border border-gray-200 rounded-xl">
-            <RouterLink to="details.html">
+            <RouterLink to="/detail">
                 <div class="m-4 overflow-hidden rounded-xl">
                     <img alt="Placeholder" class="block w-full h-auto" :src="'/img/' + image" />
                 </div>
