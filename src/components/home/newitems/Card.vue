@@ -7,7 +7,7 @@ defineProps({ title: String, image: String, category: String });
         <div class="overflow-hidden border border-gray-200 rounded-xl">
             <RouterLink to="/detail">
                 <div class="m-4 overflow-hidden rounded-xl">
-                    <img alt="Placeholder" class="block w-full h-auto" :src="'/img/' + image" />
+                    <img alt="Placeholder" class="block w-full h-auto" :src="image" />
                 </div>
             </RouterLink>
 
