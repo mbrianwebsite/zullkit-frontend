@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const defaultImage = ref('gallery-1.png');
+const defaultImage = ref('gallery-2.png');
 const galleries = ref([
     { id: 1, image: 'gallery-2.png' },
     { id: 2, image: 'gallery-3.png' },
@@ -15,7 +15,8 @@ const galleries = ref([
         <img :src="'/img/' + defaultImage" alt="" class="w-full mt-6 rounded-2xl">
         <div class="grid grid-cols-4 gap-4 mt-4">
             <template v-for="picture in galleries">
-                <div class="overflow-hidden cursor-pointer rounded-2xl">
+                <div @mouseover="defaultImage = picture.image" class="overflow-hidden cursor-pointer rounded-2xl"
+                    :class="{ 'ring-2 ring-indigo-500': picture.image == defaultImage }">
                     <img :src="'/img/' + picture.image" class="w-full" alt="">
                 </div>
             </template>
