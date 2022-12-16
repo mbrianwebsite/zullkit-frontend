@@ -33,9 +33,8 @@ onMounted(() => {
             All Categories
         </h2>
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
-            <template v-for="category in categories" :key="category.id">
-                <Card :title="category.name" :items="category.products_count" :image="category.thumbnails" />
-            </template>
+            <Card v-for="category in categories" :key="category.id" :id="category.id" :title="category.name"
+                :items="category.products_count" :image="category.thumbnails" />
         </div>
     </div>
 </template>

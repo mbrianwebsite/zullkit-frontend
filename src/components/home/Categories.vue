@@ -34,7 +34,8 @@ onMounted(() => {
         </h2>
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <template v-for="category in categories" :key="category.id">
-                <Card :title="category.name" :items="category.products_count" :image="category.thumbnails" />
+                <Card :id="category.id" :title="category.name" :items="category.products_count"
+                    :image="category.thumbnails" />
             </template>
             <!-- <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
                 <div class="overflow-hidden border border-gray-200 rounded-xl">
