@@ -1,5 +1,5 @@
 <script setup>
-import Items from '@/components/categoryitem/items.vue'
+import Items from '@/components/categoryitem/Items.vue'
 </script>
 <template>
     <main>
