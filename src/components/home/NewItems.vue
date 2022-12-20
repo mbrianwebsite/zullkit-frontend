@@ -31,7 +31,7 @@ onMounted(() => {
         <h2 class="mb-4 text-xl font-medium md:mb-0 md:text-lg">New Items</h2>
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <template v-for="item in items" :key="item.id">
-                <Card :title="item.name" :category="item.category.name" :image="item.thumbnails" />
+                <Card :id="item.id" :title="item.name" :category="item.category.name" :image="item.thumbnails" />
             </template>
             <!-- <div class="w-full px-1 my-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                 <div class="overflow-hidden border border-gray-200 rounded-xl">
