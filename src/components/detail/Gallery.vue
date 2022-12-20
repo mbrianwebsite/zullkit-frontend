@@ -2,15 +2,9 @@
 import { ref } from "vue";
 const props = defineProps({
     image: String,
+    galleries: Array,
 });
 
-
-const galleries = ref([
-    { id: 1, url: '/img/gallery-2.png' },
-    { id: 2, url: '/img/gallery-3.png' },
-    { id: 3, url: '/img/gallery-4.png' },
-    { id: 4, url: '/img/gallery-5.png' },
-]);
 
 </script>
 
@@ -18,7 +12,7 @@ const galleries = ref([
 
     <section id="gallery">
         <img :src="image" alt="" class="w-full mt-6 rounded-2xl" />
-        <div class="grid grid-cols-4 gap-4 mt-4">
+        <div v-if="galleries" class="grid grid-cols-4 gap-4 mt-4">
             <template v-for="gallery in galleries" :key="gallery.id">
                 <div @mouseover="image = gallery.url" class="overflow-hidden cursor-pointer rounded-2xl"
                     :class="{ 'ring-2 ring-indigo-500': image == gallery.url }">

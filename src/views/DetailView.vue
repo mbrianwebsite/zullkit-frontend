@@ -34,7 +34,7 @@ onMounted(() => {
                     {{ product.name }}
                 </h1>
                 <p class="text-gray-500">{{ product.subtitle }}</p>
-                <Gallery :image="product.thumbnails" />
+                <Gallery :image="product.thumbnails" :galleries="product.galleries" />
                 <section class="" id="orders">
                     <h1 class="mt-8 mb-3 text-lg font-semibold">About</h1>
                     <div class="text-gray-500" v-html="product.description">
