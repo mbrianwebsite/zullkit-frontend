@@ -1,10 +1,18 @@
 <script setup>
-import { useRoute, RouterLink } from "vue-router"
 import Gallery from "@/components/detail/Gallery.vue"
+import { useUserStore } from "@/stores/user";
+
+
+import { useRoute, RouterLink } from "vue-router"
 import { ref, onMounted, computed } from "vue"
 import axios from 'axios'
-const product = ref(false)
 const route = useRoute()
+const userStore = useUserStore()
+
+const user = computed(() => userStore.getUser)
+const isLoggedIn = computed(() => userStore.isLoggedIn)
+const product = ref(false)
+
 async function getProduct() {
     try {
         const response = await axios.get('https://zullkit-backend.buildwithangga.id/api/products?id=' + route.params.id)
@@ -77,10 +85,18 @@ onMounted(() => {
                                 </template>
                             </ul>
                         </div>
-                        <RouterLink to="/pricing"
-                            class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
-                            Download Now
-                        </RouterLink>
+                        <template v-if="user.data.subscription.length > 0">
+                            <a :href="product.file"
+                                class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
+                                Download Now
+                            </a>
+                        </template>
+                        <template v-else>
+                            <RouterLink to="/pricing"
+                                class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
+                                Subscribe Now
+                            </RouterLink>
+                        </template>
                     </div>
                 </div>
             </aside>
