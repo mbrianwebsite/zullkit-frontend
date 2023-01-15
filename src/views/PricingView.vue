@@ -1,6 +1,13 @@
 <script setup>
+import { computed } from "vue";
+
 import { RouterLink } from "vue-router";
 import axios from "axios";
+
+import { useUserStore } from "@/stores/user";
+const userStore = useUserStore()
+const user = computed(() => userStore.getUser)
+
 async function checkout(price) {
     try {
         const response = await axios.post(
@@ -73,10 +80,18 @@ async function checkout(price) {
 
                                     </li>
                                 </ul>
-                                <button @click="checkout(2000)"
-                                    class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-md md:px-10 hover:shadow">
-                                    Subscribe Now
-                                </button>
+                                <template v-if="user.data">
+                                    <button @click="checkout(2000)"
+                                        class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-black bg-gray-200 border border-transparent rounded-full hover:bg-gray-300 md:py-2 md:text-md md:px-10 hover:shadow">
+                                        Subscribe Now
+                                    </button>
+                                </template>
+                                <template v-else>
+                                    <RouterLink to="/login"
+                                        class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
+                                        Login to subscribe
+                                    </RouterLink>
+                                </template>
                             </div>
                         </div>
                         <div>
@@ -133,10 +148,18 @@ async function checkout(price) {
 
                                     </li>
                                 </ul>
-                                <button @click="checkout(9000)"
-                                    class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
-                                    Subscribe Now
-                                </button>
+                                <template v-if="user.data">
+                                    <button @click="checkout(9000)"
+                                        class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
+                                        Subscribe Now
+                                    </button>
+                                </template>
+                                <template v-else>
+                                    <RouterLink to="/login"
+                                        class="inline-flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-full hover:bg-indigo-700 md:py-2 md:text-md md:px-10 hover:shadow">
+                                        Login to subscribe
+                                    </RouterLink>
+                                </template>
                             </div>
                         </div>
                     </div>
